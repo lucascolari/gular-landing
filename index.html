@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es" data-loading>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Gular — No hay solución sin Gular</title>
+  <meta name="description" content="Agencia creativa con base en Buenos Aires. Combinamos sensibilidad artística, estrategia comercial y tecnología para encontrar la solución singular de cada proyecto." />
+  <meta name="theme-color" content="#05060d" />
+
+  <!-- Open Graph (provisorio) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Gular — No hay solución sin Gular" />
+  <meta property="og:description" content="Agencia creativa con base en Buenos Aires. Universos construidos y soluciones singulares." />
+  <meta property="og:locale" content="es_AR" />
+
+  <link rel="icon" href="assets/img/gularlogo.svg" type="image/svg+xml" />
+
+  <!-- Tipografías de marca: Archivo (titulares) + Inter (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Three.js (fijado por versión) para el fondo espacio 3D -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js"
+    }
+  }
+  </script>
+</head>
+<body>
+  <!-- Loader: logo sobre el negro espacio mientras carga la escena -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <img class="loader__logo" src="assets/img/gularlogo.svg" alt="" width="120" height="58" />
+    <div class="loader__bar"><span></span></div>
+  </div>
+
+  <!-- Fondo espacio 3D persistente (WebGL). Fallback por CSS si no hay WebGL. -->
+  <canvas id="space" class="space-canvas" aria-hidden="true"></canvas>
+
+  <!-- Navegación -->
+  <header class="nav" id="nav">
+    <a class="nav__brand" href="#hero" aria-label="Gular — inicio">
+      <img src="assets/img/gularlogo.svg" alt="Gular" width="86" height="41" />
+    </a>
+    <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+      <a href="#proyectos">Proyectos</a>
+      <a href="#capacidades">Capacidades</a>
+      <a href="#gular">Gular</a>
+      <a href="#contacto" class="nav__cta">Contacto</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- 1 · ENTRADA / HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__inner">
+        <p class="eyebrow reveal">Agencia creativa · Buenos Aires</p>
+        <h1 class="hero__title reveal">No hay solución<br />sin <span class="accent">Gular</span>.</h1>
+        <p class="hero__lead reveal">
+          Cada proyecto tiene una solución singular. En Gular combinamos sensibilidad
+          artística, estrategia comercial y tecnología para encontrarla.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#proyectos" class="btn btn--solid">Ver proyectos</a>
+          <a href="#contacto" class="btn btn--ghost">Contanos un proyecto</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true"><span></span>Scrolleá para explorar</div>
+    </section>
+
+    <!-- 2 · PROYECTOS (carrusel por scroll) -->
+    <section class="projects" id="proyectos">
+      <div class="projects__pin">
+        <div class="projects__head">
+          <h2 class="section-title">Proyectos</h2>
+          <p class="section-sub">Universos construidos y soluciones singulares.</p>
+        </div>
+        <div class="track" id="track">
+          <!-- Jolly -->
+          <article class="work">
+            <div class="work__media">
+              <img src="assets/media/jolly/jolly-08.webp" alt="Sistema de identidad de marca Jolly" loading="lazy" />
+              <span class="work__index">01 / 06</span>
+            </div>
+            <div class="work__meta">
+              <span class="work__label">Soluciones singulares</span>
+              <h3 class="work__name">Jolly</h3>
+              <p class="work__desc">Sistema de identidad de marca: construcción del lenguaje visual y sus lineamientos de uso.</p>
+              <span class="work__caps">Estrategia · Creatividad</span>
+            </div>
+          </article>
+
+          <!-- Aperol -->
+          <article class="work">
+            <div class="work__media">
+              <video data-src="assets/media/video/aperol.mp4" poster="assets/media/video/aperol.jpg" muted loop playsinline preload="none"></video>
+              <span class="work__index">02 / 06</span>
+            </div>
+            <div class="work__meta">
+              <span class="work__label">Universos construidos</span>
+              <h3 class="work__name">Aperol · Ultra 2025</h3>
+              <p class="work__desc">Activación de marca en festival: contenido y producción audiovisual para pantallas y redes.</p>
+              <span class="work__caps">Creatividad · Producción</span>
+            </div>
+          </article>
+
+          <!-- Triumph -->
+          <article class="work">
+            <div class="work__media">
+              <video data-src="assets/media/video/triumph.mp4" poster="assets/media/video/triumph.jpg" muted loop playsinline preload="none"></video>
+              <span class="work__index">03 / 06</span>
+            </div>
+            <div class="work__meta">
+              <span class="work__label">Soluciones singulares</span>
+              <h3 class="work__name">Triumph Rider Academy</h3>
+              <p class="work__desc">Dirección, edición y postproducción del film de campaña de la academia.</p>
+              <span class="work__caps">Creatividad · Producción</span>
+            </div>
+          </article>
+
+          <!-- Envision -->
+          <article class="work">
+            <div class="work__media">
+              <video data-src="assets/media/video/envision.mp4" poster="assets/media/video/envision.jpg" muted loop playsinline preload="none"></video>
+              <span class="work__index">04 / 06</span>
+            </div>
+            <div class="work__meta">
+              <span class="work__label">Universos construidos</span>
+              <h3 class="work__name">Envision</h3>
+              <p class="work__desc">Concepto y producción audiovisual para circuito de pantallas y showreel de campaña.</p>
+              <span class="work__caps">Estrategia · Creatividad · Producción</span>
+            </div>
+          </article>
+
+          <!-- Skyy -->
+          <article class="work">
+            <div class="work__media">
+              <video data-src="assets/media/video/skyy.mp4" poster="assets/media/video/skyy.jpg" muted loop playsinline preload="none"></video>
+              <span class="work__index">05 / 06</span>
+            </div>
+            <div class="work__meta">
+              <span class="work__label">Universos construidos</span>
+              <h3 class="work__name">Skyy · Ultra 2025</h3>
+              <p class="work__desc">Activación de marca en festival: piezas audiovisuales pensadas para el contexto del evento.</p>
+              <span class="work__caps">Creatividad · Producción</span>
+            </div>
+          </article>
+
+          <!-- Turismo FIT -->
+          <article class="work">
+            <div class="work__media">
+              <video data-src="assets/media/video/turismo.mp4" poster="assets/media/video/turismo.jpg" muted loop playsinline preload="none"></video>
+              <span class="work__index">06 / 06</span>
+            </div>
+            <div class="work__meta">
+              <span class="work__label">Soluciones singulares</span>
+              <h3 class="work__name">FIT 2025</h3>
+              <p class="work__desc">Video institucional para pantallas en stand en la Feria Internacional de Turismo.</p>
+              <span class="work__caps">Producción · Desarrollo</span>
+            </div>
+          </article>
+        </div>
+        <div class="track__progress" aria-hidden="true"><span id="trackProgress"></span></div>
+      </div>
+    </section>
+
+    <!-- 3 · CAPACIDADES -->
+    <section class="caps" id="capacidades">
+      <h2 class="section-title reveal">Capacidades</h2>
+      <p class="section-sub reveal">Son capacidades combinables. Cada caso muestra las que participaron efectivamente.</p>
+      <div class="caps__grid">
+        <article class="cap reveal">
+          <span class="cap__num">01</span>
+          <h3>Estrategia</h3>
+          <p>Definimos dirección, posicionamiento y criterios de marca para orientar cada proyecto.</p>
+        </article>
+        <article class="cap reveal">
+          <span class="cap__num">02</span>
+          <h3>Creatividad</h3>
+          <p>Desarrollamos conceptos y lenguajes que conectan esa dirección con las personas.</p>
+        </article>
+        <article class="cap reveal">
+          <span class="cap__num">03</span>
+          <h3>Producción</h3>
+          <p>Convertimos las ideas en diseño, contenidos, imágenes, animación y piezas audiovisuales.</p>
+        </article>
+        <article class="cap reveal">
+          <span class="cap__num">04</span>
+          <h3>Desarrollo</h3>
+          <p>Construimos webs, aplicaciones y experiencias digitales a medida.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4 · GULAR (nosotros) -->
+    <section class="about" id="gular">
+      <div class="about__inner reveal">
+        <h2 class="about__title">Somos una agencia creativa con base en Buenos Aires.</h2>
+        <p class="about__text">
+          Desarrollamos el universo de cada marca: cómo se define, cómo se expresa
+          y cómo se conecta con las personas.
+        </p>
+      </div>
+    </section>
+
+    <!-- 5 · CONTACTO -->
+    <section class="contact" id="contacto">
+      <div class="contact__grid">
+        <div class="contact__intro reveal">
+          <h2 class="section-title">Contanos qué estás construyendo.</h2>
+          <p class="section-sub">
+            Compartinos tu idea, el momento de tu marca o lo que necesitás transformar.
+          </p>
+          <div class="contact__direct">
+            <!-- TODO: reemplazar por el WhatsApp y el correo reales de Gular -->
+            <a class="btn btn--ghost" id="waLink" href="https://wa.me/5491100000000" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+            <a class="btn btn--ghost" id="mailLink" href="mailto:hola@gular.com">Escribir por correo</a>
+          </div>
+        </div>
+
+        <form class="contact__form reveal" id="contactForm" novalidate>
+          <div class="field">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="email">Correo</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="mensaje">Contanos tu proyecto</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn--solid">Enviar consulta</button>
+          <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img src="assets/img/gularlogo.svg" alt="Gular" width="64" height="31" />
+    <p>© <span id="year"></span> Gular · Buenos Aires, Argentina</p>
+  </footer>
+
+  <script type="module" src="assets/js/space.js"></script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

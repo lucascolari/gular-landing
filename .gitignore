@@ -1,0 +1,10 @@
+# SO / editor
+.DS_Store
+Thumbs.db
+
+# Dependencias (por si se agregan más adelante)
+node_modules/
+
+# Material pesado de origen (no versionar; se usan los recortes en assets/media)
+*.mov
+/source-media/
