@@ -1,23 +1,17 @@
 /* =========================================================================
    Interacción de la landing de Gular
-   - Loader, navegación (scroll + menú móvil), reveals.
+   - Navegación (scroll + menú móvil), reveals.
    - Carrusel de proyectos por scroll (pin horizontal en desktop; swipe nativo
      en móvil / reduce-motion).
    - Carga diferida de videos y formulario de contacto (mailto provisorio).
+   (La intro/ceremonia se maneja en intro.js.)
    ========================================================================= */
 
-const root = document.documentElement;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 /* ---------- Año del footer ---------- */
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-/* ---------- Loader: se oculta cuando carga la ventana (o a lo sumo a los 4s) ---------- */
-function hideLoader() { root.removeAttribute("data-loading"); }
-window.addEventListener("load", hideLoader);
-window.addEventListener("space:ready", hideLoader);
-setTimeout(hideLoader, 4000); // red de seguridad
 
 /* ---------- Navegación ---------- */
 const nav = document.getElementById("nav");

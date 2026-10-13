@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es" data-loading>
+<html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -13,7 +13,7 @@
   <meta property="og:description" content="Agencia creativa con base en Buenos Aires. Universos construidos y soluciones singulares." />
   <meta property="og:locale" content="es_AR" />
 
-  <link rel="icon" href="assets/img/gularlogo.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/img/isomenu.svg" type="image/svg+xml" />
 
   <!-- Tipografías de marca: Archivo (titulares) + Inter (texto) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,6 +21,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Si no hay JS, no dejamos la intro tapando el sitio -->
+  <noscript><style>.intro{display:none!important}</style></noscript>
 
   <!-- Three.js (fijado por versión) para el fondo espacio 3D -->
   <script type="importmap">
@@ -32,10 +34,17 @@
   </script>
 </head>
 <body>
-  <!-- Loader: logo sobre el negro espacio mientras carga la escena -->
-  <div class="loader" id="loader" aria-hidden="true">
-    <img class="loader__logo" src="assets/img/gularlogo.svg" alt="" width="120" height="58" />
-    <div class="loader__bar"><span></span></div>
+  <!-- Intro / ceremonia (basada en la del sitio real): "g" → No hay solución →
+       SINGULAR → "g" → entra al sitio. Una vez por sesión; se saltea con
+       reduce-motion o en visitas repetidas. -->
+  <div class="intro" id="intro" data-step="pre">
+    <div class="intro__stage">
+      <div class="intro__beat intro__g">
+        <span class="iso"><span class="iso__top"></span><span class="iso__tail"></span></span>
+      </div>
+      <p class="intro__beat intro__word" data-beat="frase">No hay solución</p>
+      <p class="intro__beat intro__word intro__word--singular" data-beat="singular">SINGULAR</p>
+    </div>
   </div>
 
   <!-- Fondo espacio 3D persistente (WebGL). Fallback por CSS si no hay WebGL. -->
@@ -73,6 +82,10 @@
         </div>
       </div>
       <div class="hero__scroll" aria-hidden="true"><span></span>Scrolleá para explorar</div>
+      <!-- Firma de marca: la "g" de Gular girando como tornamesa (isotipo real) -->
+      <div class="brand-iso" aria-hidden="true">
+        <span class="iso"><span class="iso__top"></span><span class="iso__tail"></span></span>
+      </div>
     </section>
 
     <!-- 2 · PROYECTOS (carrusel por scroll) -->
@@ -250,6 +263,7 @@
     <p>© <span id="year"></span> Gular · Buenos Aires, Argentina</p>
   </footer>
 
+  <script type="module" src="assets/js/intro.js"></script>
   <script type="module" src="assets/js/space.js"></script>
   <script type="module" src="assets/js/main.js"></script>
 </body>
