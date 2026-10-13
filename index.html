@@ -50,21 +50,25 @@
   <!-- Fondo espacio 3D persistente (WebGL). Fallback por CSS si no hay WebGL. -->
   <canvas id="space" class="space-canvas" aria-hidden="true"></canvas>
 
-  <!-- Navegación -->
+  <!-- Navegación: logo a la izquierda, la "g" (isotipo) como botón de menú a la derecha -->
   <header class="nav" id="nav">
     <a class="nav__brand" href="#hero" aria-label="Gular — inicio">
       <img src="assets/img/gularlogo.svg" alt="Gular" width="86" height="41" />
     </a>
-    <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+    <button class="nav__menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="menuPanel">
+      <span class="iso"><span class="iso__top"></span><span class="iso__tail"></span></span>
+    </button>
+  </header>
+
+  <!-- Menú (se abre con la "g") -->
+  <div class="menu" id="menuPanel" aria-hidden="true">
+    <nav class="menu__links" aria-label="Navegación principal">
       <a href="#proyectos">Proyectos</a>
       <a href="#capacidades">Capacidades</a>
       <a href="#gular">Gular</a>
-      <a href="#contacto" class="nav__cta">Contacto</a>
+      <a href="#contacto">Contacto</a>
     </nav>
-    <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span>
-    </button>
-  </header>
+  </div>
 
   <main>
     <!-- 1 · ENTRADA / HERO -->
@@ -82,10 +86,6 @@
         </div>
       </div>
       <div class="hero__scroll" aria-hidden="true"><span></span>Scrolleá para explorar</div>
-      <!-- Firma de marca: la "g" de Gular girando como tornamesa (isotipo real) -->
-      <div class="brand-iso" aria-hidden="true">
-        <span class="iso"><span class="iso__top"></span><span class="iso__tail"></span></span>
-      </div>
     </section>
 
     <!-- 2 · PROYECTOS (carrusel por scroll) -->

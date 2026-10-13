@@ -13,27 +13,25 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-/* ---------- Navegación ---------- */
+/* ---------- Navegación: la "g" (isotipo) abre/cierra el menú ---------- */
 const nav = document.getElementById("nav");
-const navToggle = document.getElementById("navToggle");
-const navLinks = document.getElementById("navLinks");
+const menuBtn = document.getElementById("menuBtn");
+const menuPanel = document.getElementById("menuPanel");
 
 window.addEventListener("scroll", () => {
   if (window.scrollY > 10) nav.setAttribute("data-scrolled", "");
   else nav.removeAttribute("data-scrolled");
 }, { passive: true });
 
-navToggle.addEventListener("click", () => {
-  const open = navLinks.toggleAttribute("data-open");
-  navToggle.setAttribute("aria-expanded", String(open));
-  navToggle.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
-});
-navLinks.querySelectorAll("a").forEach((a) =>
-  a.addEventListener("click", () => {
-    navLinks.removeAttribute("data-open");
-    navToggle.setAttribute("aria-expanded", "false");
-  })
-);
+function setMenu(open) {
+  menuPanel.toggleAttribute("data-open", open);
+  menuPanel.setAttribute("aria-hidden", String(!open));
+  menuBtn.setAttribute("aria-expanded", String(open));
+  menuBtn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú");
+}
+menuBtn.addEventListener("click", () => setMenu(!menuPanel.hasAttribute("data-open")));
+menuPanel.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
 
 /* ---------- Reveals al entrar en viewport ---------- */
 const revealIO = new IntersectionObserver(
